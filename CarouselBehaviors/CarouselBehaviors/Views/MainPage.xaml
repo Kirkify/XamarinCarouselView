@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="CarouselBehaviors.Views.MainPage"
+             xmlns:dt="clr-namespace:CarouselBehaviors.DataTemplates"
+             xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             Title="MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <dt:SinglePersonGrid x:Key="SinglePersonGrid" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Margin="20,0,20,0">
+            <Button Text="Left" Command="{Binding MoveLeftCommand}" />
+            <Button Text="Right" Command="{Binding MoveRightCommand}" />
+            <Button Text="Toggle" Command="{Binding TogglePeopleCommand}" />
+        </StackLayout>
+
+        <cv:CarouselView x:Name="Carousel" Grid.Row="1" ItemsSource="{Binding People}" Position="{Binding Position, Mode=TwoWay}" ItemTemplate="{StaticResource SinglePersonGrid}" ItemSelected="CarouselView_ItemSelected" />
+
+    </Grid>
+    
+</ContentPage>
