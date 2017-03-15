@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
+using CarouselView.FormsPlugin.Android;
 
 namespace CarouselBehaviors.Droid
 {
@@ -22,6 +23,8 @@ namespace CarouselBehaviors.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+						CarouselViewRenderer.Init();
             LoadApplication(new App(new AndroidInitializer()));
         }
     }

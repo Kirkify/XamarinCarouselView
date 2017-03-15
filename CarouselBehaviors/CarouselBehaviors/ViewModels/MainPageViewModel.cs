@@ -82,10 +82,6 @@ namespace CarouselBehaviors.ViewModels
             var updatedPeople = AllPeople().Take(3).ToList();
             var desiredPosition = updatedPeople.Count() - 1;
 
-            // Since we have decided the position of the carousel view let's let it know
-            // Before we update the carousel itemsource
-            ea.GetEvent<PeopleListUpdatedEvent>().Publish(desiredPosition);
-
             People = updatedPeople;
             Position = desiredPosition;
         }
@@ -94,8 +90,6 @@ namespace CarouselBehaviors.ViewModels
         {
             var updatedPeople = AllPeople();
             var desiredPosition = updatedPeople.Count() - 1;
-
-            ea.GetEvent<PeopleListUpdatedEvent>().Publish(desiredPosition);
 
             People = updatedPeople;
             Position = desiredPosition;

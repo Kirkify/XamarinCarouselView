@@ -6,6 +6,7 @@
              x:Class="CarouselBehaviors.Views.MainPage"
              xmlns:dt="clr-namespace:CarouselBehaviors.DataTemplates"
              xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             xmlns:acv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
              Title="MainPage">
 
     <ContentPage.Resources>
@@ -26,7 +27,9 @@
             <Button Text="Toggle" Command="{Binding TogglePeopleCommand}" />
         </StackLayout>
 
-        <cv:CarouselView x:Name="Carousel" Grid.Row="1" ItemsSource="{Binding People}" Position="{Binding Position, Mode=TwoWay}" ItemTemplate="{StaticResource SinglePersonGrid}" ItemSelected="CarouselView_ItemSelected" />
+        <acv:CarouselViewControl Grid.Row="1" Position="{Binding Position, Mode=TwoWay}" ItemsSource="{Binding People}" ItemTemplate="{StaticResource SinglePersonGrid}" />
+
+        <!--<cv:CarouselView x:Name="Carousel" Grid.Row="1" ItemsSource="{Binding People}" Position="{Binding Position, Mode=TwoWay}" ItemTemplate="{StaticResource SinglePersonGrid}" ItemSelected="CarouselView_ItemSelected" />-->
 
     </Grid>
     

@@ -6,6 +6,7 @@ using Foundation;
 using UIKit;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
+using CarouselView.FormsPlugin.iOS;
 
 namespace CarouselBehaviors.iOS
 {
@@ -25,6 +26,8 @@ namespace CarouselBehaviors.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+						
+						CarouselViewRenderer.Init();
             LoadApplication(new App(new iOSInitializer()));
 
             return base.FinishedLaunching(app, options);
